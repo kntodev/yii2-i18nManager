@@ -1,4 +1,4 @@
-Yii2 i18n Manager
+Yii2 i18nManager
 ================
 Module to manage DbMessageSource tranlations
 
