@@ -1,2 +1,2 @@
-# yii2-i18nmanager
+# Yii2-i18n Manager
 Module to manage DbMessageSource tranlations
