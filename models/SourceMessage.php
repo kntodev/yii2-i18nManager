@@ -1,6 +1,6 @@
 <?php
 
-namespace kntodev\i18nmanager\models;
+namespace vendor\kntodev\i18nmanager\models;
 
 use Yii;
 

@@ -21,6 +21,13 @@ or add
 
 to the require section of your `composer.json` file.
 
+```
+        'translation' => [
+            'class' => 'kntodev\i18nmanager\Module',
+        ],
+
+to the modules section of your config/main.php
+```
 
 Usage
 -----
