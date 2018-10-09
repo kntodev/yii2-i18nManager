@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel vendor\kntodev\i18nmanager\models\LanguageCategorySearch */
+/* @var $searchModel vendor\kntodev\i18nmanager\models\MessageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Language Categories';
+$this->title = 'Messages';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="language-category-index">
+<div class="message-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Language Category', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Message', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,9 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'category',
-            'base_language',
-            //'data:ntext',
+            'language',
+            'translation:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

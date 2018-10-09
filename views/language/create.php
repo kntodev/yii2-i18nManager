@@ -4,9 +4,9 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CostCalculator */
+/* @var $model kntodev\i18nmanager\models\LanguageCategory */
 
-$this->title = 'New Language Category';
+$this->title = 'Create Language Category';
 $this->params['breadcrumbs'][] = ['label' => 'Language Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

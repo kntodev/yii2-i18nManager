@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\kntodev\i18nmanager\models;
+namespace kntodev\i18nmanager\models;
 
 use Yii;
 
@@ -45,8 +45,8 @@ class Message extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'language' => 'Language',
-            'translation' => 'Translation',
+            'language' => 'Zielsprache',
+            'translation' => 'Übersetzung',
         ];
     }
 

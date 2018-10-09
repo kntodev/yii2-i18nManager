@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\kntodev\i18nmanager\controllers;
+namespace kntodev\i18nmanager\controllers;
 
 use Yii;
 use kntodev\i18nmanager\models\LanguageCategory;
-use vendor\kntodev\i18nmanager\models\LanguageCategorySearch;
+use kntodev\i18nmanager\models\LanguageCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * LanguageCategoryController implements the CRUD actions for LanguageCategory model.
  */
-class LanguageCategoryController extends Controller
+class LanguageController extends Controller
 {
     /**
      * {@inheritdoc}

@@ -5,12 +5,12 @@ namespace kntodev\i18nmanager\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use kntodev\i18nmanager\models\LanguageCategory;
+use kntodev\i18nmanager\models\SourceMessage;
 
 /**
- * LanguageCategorySearch represents the model behind the search form of `kntodev\i18nmanager\models\LanguageCategory`.
+ * SourceMessageSearch represents the model behind the search form of `kntodev\i18nmanager\models\SourceMessage`.
  */
-class LanguageCategorySearch extends LanguageCategory
+class SourceMessageSearch extends SourceMessage
 {
     /**
      * {@inheritdoc}
@@ -19,7 +19,7 @@ class LanguageCategorySearch extends LanguageCategory
     {
         return [
             [['id'], 'integer'],
-            [['category', 'base_language', 'data'], 'safe'],
+            [['category', 'message'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class LanguageCategorySearch extends LanguageCategory
      */
     public function search($params)
     {
-        $query = LanguageCategory::find();
+        $query = SourceMessage::find();
 
         // add conditions that should always apply here
 
@@ -63,8 +63,7 @@ class LanguageCategorySearch extends LanguageCategory
         ]);
 
         $query->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'base_language', $this->base_language])
-            ->andFilterWhere(['like', 'data', $this->data]);
+            ->andFilterWhere(['like', 'message', $this->message]);
 
         return $dataProvider;
     }

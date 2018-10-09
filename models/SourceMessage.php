@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\kntodev\i18nmanager\models;
+namespace kntodev\i18nmanager\models;
 
 use Yii;
 
@@ -53,4 +53,11 @@ class SourceMessage extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Message::className(), ['id' => 'id']);
     }
+
+    public function getTranslation($language)
+    {
+        return Message::find()->where(['id' => $this->id,'language' => $language]);
+//        return $this->hasone(Message::className(), ['id' => 'id', $language => 'language']);
+    }
+
 }

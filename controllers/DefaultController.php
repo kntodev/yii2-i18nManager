@@ -3,12 +3,11 @@
 namespace kntodev\i18nmanager\controllers;
 
 use Yii;
-use yii\web\Controller;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
-use yii\helpers\ArrayHelper;
-use kntodev\i18nmanager\models\SourceMessage ;
 use kntodev\i18nmanager\models\LanguageCategory;
+use kntodev\i18nmanager\models\LanguageCategorySearch;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 /**
  * Default controller for the `simplemessage` module
@@ -18,32 +17,17 @@ class DefaultController extends Controller
 
     public $layout = "@app/views/layouts/main";
 
-    //public function behaviors()
-    //{
-    //    return [
-    //        'access' => [
-    //            'class' => AccessControl::className(),
-    //            'only' => ['delete', 'create'], 
-    //            'rules' => [
-    //                [
-    //                    'allow' => false,
-    //                    'verbs' => ['POST'],
-    //                ],
-    //                [
-    //                    'allow' => true,
-    //                    'actions' => ['delete', 'create'],
-    //                    'roles' => ['Admin'],
-    //                ],
-    //            ],
-    //        ],
-    //        'verbs' => [
-    //            'class' => VerbFilter::className(),
-    //            'actions' => [
-    //                'delete' => ['post'],
-    //            ],
-    //        ],
-    //    ];
-    //}
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
 
 
     /**
@@ -52,15 +36,12 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $language_list = [
-            'en' => 'en',
-            'de' => 'de',
-        ];
-        $categories = $this->getCategories() ;
+        $searchModel = new LanguageCategorySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'categories' => $categories,
-            'language_list' => $language_list,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
