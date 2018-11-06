@@ -222,8 +222,10 @@ class MessageController extends Controller
 
         $translations = json_decode($basemodel->data, TRUE) ;
 
-        foreach ($translations as $key => $value) {
-            unset($language[$key]);
+        if (count($translations) > 0) {
+            foreach ($translations as $key => $value) {
+                unset($language[$key]);
+            }
         }
 
         return $language;
