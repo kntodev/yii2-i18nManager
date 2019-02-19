@@ -46,10 +46,19 @@ class SourcemessageController extends Controller
 
     public function actionSave()
     {
-        $model = new SourceMessage();
+        if (Yii::$app->request->post()) {
+            $post = Yii::$app->request->post();
+            $SourceMessage = $post['SourceMessage'];
+            $category = $SourceMessage['category'] ;
+            $message = explode(',', $SourceMessage['message']) ;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'category' => $model->category]);
+            foreach ($message as $value) {
+                $model = new SourceMessage();
+                $model->category = $category;
+                $model->message = $value;
+                $model->save();
+            }
+            return $this->redirect(['view', 'category' => $category]);
         }
     }
 
